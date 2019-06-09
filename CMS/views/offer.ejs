@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+	<link rel='stylesheet' href='/stylesheets/main.css' />
+	<link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+  </head>
+  <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "<%= app.apiKey %>",
+	    authDomain: "<%= app.authDomain %>",
+	    databaseURL: "<%= app.databaseURL %>",
+	    projectId: "<%= app.projectId %>",
+	    storageBucket: "<%= app.storageBucket %>",
+	    messagingSenderId: "<%= app.messagingSenderId %>"
+	  };
+	  firebase.initializeApp(config);
+	  var storage = firebase.storage();
+
+	  function getURL(uri,key)
+	  {
+	    var ref = storage.ref(uri);
+	    var link = ref.getDownloadURL().then(function(url){
+	      var img = document.getElementById(key);
+	      img.src = url;
+	    });
+	  }
+	</script>
+
+  <body>
+  
+  
+  <header id="header"><!--header-->
+		<div class="header_top"><!--header_top-->
+		<ul class="nav nav-pills">
+        <img src="images/web1.jpg" width=70% height=90px>
+	    </div>
+
+	</header>
+	
+	<br>
+	<h1 align="center">Add Product Offer</h1>
+   	<br><br>
+    <br>
+	<%for (var key in data) { %>
+		<div class="col-sm-4"><a href='/product?key=<%= key %>'>
+								<div class="product-image-wrapper">
+									<div class="single-products">
+											<div class="productinfo text-center">
+												<img id = <%= data[key].Product_ID %> src="" alt=""height=400 width=auto name = <%= data[key].Images %>/>
+												<script type="text/javascript">
+												var key = <%= data[key].Product_ID%>;
+												var uri = document.getElementById(key).name;	
+													getURL(uri,key);
+												</script>
+												
+												<center><font color=black><%= data[key].Name %></font></center>
+												
+											</div>
+											
+									</div>
+									</a>
+								</div>
+							</div>
+	<% } %>
+
+	</div>
+  </body>
+</html>

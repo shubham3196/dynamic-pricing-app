@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+	<link rel='stylesheet' href='/stylesheets/main.css' />
+	<link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+  </head>
+  <body>
+  
+  <header id="header"><!--header-->
+		<div class="header_top"><!--header_top-->
+			
+		<ul class="nav nav-pills">
+        <img src="images/web1.jpg" width=100% height=90px>
+	    </div>
+
+	</header>
+	<div>
+	<br>
+	<div class="shade">
+	<h1 align="center">Add Products</h1>
+   	<br><br>
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<font size=3><b><u>
+	Add Excel 
+	</u><b></font>
+	<form method = "post" action = "/uploadExcel" enctype="multipart/form-data">
+      <br><br>
+	  <label for="files2">
+	  <p id="sel2">
+	  Select
+	  </p></label>
+	  <input type="file" id="files2" style="Visibility:hidden" name="excel" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" class="button1234"/>
+      <br>
+      <input class="button1234" type="submit" value="Upload">
+    </form>	
+	
+	<br><br><br><br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<font size=3><b><u>
+	Add images
+	</u><b></font>
+	<form method = "post" action = "/uploadImage" enctype="multipart/form-data">
+      <br><br>
+	  <label for="files">
+	  <p id="sel2">
+	  Select
+	  <p/></label>
+	  <input type="file" name="test" style="visibility:hidden" id="files" multiple="" directory="" webkitdirectory="" mozdirectory="" class="button1234">
+	  <br>
+      <input class="button1231" type="submit" value="Upload">
+    </form>
+	</div>
+  </body>
+</html>
